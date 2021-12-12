@@ -42,6 +42,18 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    suites: {
+        pastebinresultpage: [
+            './test/specs/PastebinResultPage/PastebinResultPage.spec.js',
+        ],
+        completedformpage: [
+            './test/specs/CompletedFormPage/CompletedFormPage.spec.js',
+        ],
+        yopmailhomepage: [
+            './test/specs/YopmailHomePage/YopmailHomePage.spec.js',
+        ],
+        all: ['./test/specs/**/*spec.js'],
+    },
     //
     // ============
     // Capabilities
@@ -270,7 +282,7 @@ exports.config = {
             let day = new Date().getDate();
             let hour = new Date().getHours();
             let minutes = new Date().getMinutes();
-            return `${year}_${mounth}_${day}_${hour}_${minutes}`;
+            return `${year}_${mounth}_${day}-${hour}_${minutes}`;
         }
         if (error) {
             browser.takeScreenshot();

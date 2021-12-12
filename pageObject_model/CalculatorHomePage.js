@@ -4,7 +4,6 @@ import { GoogleCloudHomePage } from './GoogleCloudHomePage.js';
 export class CalculatorHomePage extends GoogleCloudHomePage {
     constructor() {
         super();
-        //*[@id="select_container_88"]//md-option/div[contains(text(), RAW)]
         this.loc = '//md-option/*[contains(text(), "Paid: Ubuntu Pro")]';
         this.machineClassLocatorItem =
             '//*[@id="select_container_93"]/md-select-menu//md-option/*[contains(text(), "RAW")]';
@@ -25,9 +24,6 @@ export class CalculatorHomePage extends GoogleCloudHomePage {
         this.selectOperatingSystemXpath =
             '//*[@ng-model="listingCtrl.computeServer.os"]/*[@class="md-select-value"]//div';
         this.operatingSystemListXpath = '//*[@id="select_container_89"]';
-        // '//*[@id="select_container_89"]';
-        this.operatingSystemItemXpath =
-            '//md-option/*[contains(text(), "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)")]';
         this.machineClassSelectXpath =
             '//*[@ng-model="listingCtrl.computeServer.class"]/*[@class="md-select-value"]//div';
         this.machineClassListXpath = '//*[@id="select_container_93"]';
@@ -35,12 +31,9 @@ export class CalculatorHomePage extends GoogleCloudHomePage {
         this.seriesSelectXpath =
             '//*[@ng-model="listingCtrl.computeServer.series"]/*[@class="md-select-value"]//div';
         this.seriesListXpath = '//*[@id="select_container_101"]';
-        this.seriesItemXpath = '//md-option/*[contains(text(), "N1")]';
         this.machineTypeSelectXpath =
             '//*[@ng-model="listingCtrl.computeServer.instance"]/*[@class="md-select-value"]//div';
         this.machineTypeListXpath = '//*[@id="select_container_103"]';
-        this.machineTypeItemXpath =
-            '//md-option/*[contains(text(), "n1-standard-8 (vCPUs: 8, RAM: 30GB)")]';
         this.checkboxXpath =
             '//*[@aria-label="Add GPUs"]/div[@class="md-container md-ink-ripple"]';
         this.numberGrusSelectXpath =
@@ -50,12 +43,9 @@ export class CalculatorHomePage extends GoogleCloudHomePage {
             '//*[@id="select_option_462"]/div[@class="md-text ng-binding"]';
         this.GruTypeSelectXpath = '//*[@aria-label="GPU type"]';
         this.GruTypeListXpath = '//*[@value="NVIDIA_TESLA_K80"]/ancestor::div';
-        this.GruTypeItemXpath =
-            '//md-option/*[contains(text(), "NVIDIA Tesla V100")]';
         this.localSsdSelectXpath =
             '//*[@placeholder="Local SSD"]/*[@class="md-select-value"]//div';
         this.localSsdListXpath = '//*[@id="select_container_414"]';
-        this.localSsdItemXpath = '//md-option/*[contains(text(), "2x375 GB")]';
         this.datacenterSelectXpath =
             '//*[@placeholder="Datacenter location"]/*[@class="md-select-value"]//div';
         this.datacenterListXpath = '//*[@id="select_container_109"]';
@@ -76,15 +66,12 @@ export class CalculatorHomePage extends GoogleCloudHomePage {
 
     async fillInput(data) {
         let formComputeEngine = await browser.$(this.formComputeEngineXpath);
-
         let inputNumberInstances = await formComputeEngine.$(
             this.inputNumberInstancesXpath
         );
-
         await inputNumberInstances.setValue(data);
     }
 
-    /////////////////////
     async fillSelect(selectXpath, selectListXpath, locatorXpath, optionText) {
         let form = await browser.$(this.formComputeEngineXpath);
         let select = await form.$(selectXpath);
@@ -114,8 +101,6 @@ export class CalculatorHomePage extends GoogleCloudHomePage {
     }
 
     async fillForm(obj) {
-        // browser.takeScreenshot();
-        // browser.saveScreenshot('123.png.');
         await this.fillSelect(
             this.selectOperatingSystemXpath,
             this.operatingSystemListXpath,

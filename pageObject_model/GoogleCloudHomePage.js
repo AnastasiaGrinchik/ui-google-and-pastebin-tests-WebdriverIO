@@ -15,47 +15,16 @@ export class GoogleCloudHomePage extends BasicPage {
             '//a[@href="/products/calculator#tab=identity-platform"]';
     }
 
-    async searchQuery() {
-        // await browser.refresh();
+    async openCalculator() {
         let searchButton = await browser.$(this.searchButtonXpath);
         await this.waitUntilElementToBeClickable(searchButton);
         await searchButton.click();
         await searchButton.setValue('Google Cloud Platform Pricing Calculator');
         await browser.keys('Enter');
-    }
 
-    async openCalculator() {
-        await this.searchQuery();
-        let contect = await this;
-        try {
-            let linkCalculator = await browser.$(this.linkCalculatorXpath);
-            await this.waitUntilElementToBeClickable(linkCalculator);
-            await linkCalculator.click();
-        } catch (error) {
-            if (
-                error.message.includes(
-                    'Failed, after waiting for the element to be clickable'
-                )
-            ) {
-                await contect.openPage(GoogleCloudHome.urlGoogleCloudHome);
-                await contect.searchQuery();
-                // let linkCalculator = await browser.$(
-                //     this.linkTwoForPricingXpath
-                // );
-
-                // await this.waitUntilElementToBeClickable(linkCalculator);
-                // await linkCalculator.click();
-
-                // linkCalculator = await browser.$(
-                //     this.linkTwoForCalculatorXpath
-                // );
-
-                // await this.waitUntilElementToBeClickable(linkCalculator);
-                // await linkCalculator.click();
-            } else {
-                throw error;
-            }
-        }
+        let linkCalculator = await browser.$(this.linkCalculatorXpath);
+        await this.waitUntilElementToBeClickable(linkCalculator);
+        await linkCalculator.click();
     }
 }
 

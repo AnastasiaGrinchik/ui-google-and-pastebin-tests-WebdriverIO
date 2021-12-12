@@ -22,7 +22,6 @@ describe('Data previously entered in the field', function () {
         await CompletedForm.fillForm(CalculatorData);
         await CompletedForm.submitForm();
         await CompletedForm.getAllField(CompletedForm);
-        await browser.pause(10000);
     });
     it('VM Class - coincided', function () {
         expect(CompletedForm.VMClass).to.include('regular');
@@ -42,7 +41,7 @@ describe('Data previously entered in the field', function () {
     it('The rental price corresponds ', function () {
         expect(CompletedForm.price).to.include('USD 1,082.77');
     });
-    // it('test screen', function () {
-    //     expect(CompletedForm.price).to.include('USD 1,111');
-    // });
+    it('The rental price corresponds test', function () {
+        expect('1').to.include('2');
+    });
 });

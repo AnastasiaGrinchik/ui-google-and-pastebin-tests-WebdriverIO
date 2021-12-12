@@ -48,8 +48,6 @@ describe('New page contains', function () {
             'savedTextArea',
             PastebinResults.savedTextAreaXpath
         );
-
-        // await browser.pause();
     });
 
     it('Data entered in the input "Paste title" save to tab', function () {
