@@ -24,7 +24,7 @@ describe('Data previously entered in the field', function () {
         await CompletedForm.getAllField(CompletedForm);
     });
     it('VM Class - coincided', function () {
-        expect(CompletedForm.VMClass).to.include('regular');
+        expect(CompletedForm.VMClass).to.include('regularrrr');
     });
     it('Instance type - coincided', function () {
         expect(CompletedForm.instanceType).to.include('n1-standard-8');
@@ -41,7 +41,7 @@ describe('Data previously entered in the field', function () {
     it('The rental price corresponds ', function () {
         expect(CompletedForm.price).to.include('USD 1,082.77');
     });
-    it('The rental price corresponds test', function () {
-        expect('1').to.include('2');
-    });
+    // it('The rental price corresponds test', function () {
+    //     expect('1').to.include('2');
+    // });
 });
