@@ -24,7 +24,7 @@ describe('Data previously entered in the field', function () {
         await CompletedForm.getAllField(CompletedForm);
     });
     it('VM Class - coincided', function () {
-        expect(CompletedForm.VMClass).to.include('regularr');
+        expect(CompletedForm.VMClass).to.include('regular');
     });
     it('Instance type - coincided', function () {
         expect(CompletedForm.instanceType).to.include('n1-standard-8');
