@@ -41,7 +41,4 @@ describe('Data previously entered in the field', function () {
     it('The rental price corresponds ', function () {
         expect(CompletedForm.price).to.include('USD 1,082.77');
     });
-    // it('The rental price corresponds test', function () {
-    //     expect('1').to.include('2');
-    // });
 });
