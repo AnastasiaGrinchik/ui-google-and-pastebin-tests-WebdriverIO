@@ -1,6 +1,5 @@
 /node_modules
 /driver-logs
-/screenshots
+screenshots/
 /allure-results
 /allure-report
-node_modules
